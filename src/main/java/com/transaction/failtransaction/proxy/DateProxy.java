@@ -1,7 +1,7 @@
 package com.transaction.failtransaction.proxy;
 
 /**
- * 约会代理对象
+ * 约会代理对象-月老
  */
 public class DateProxy implements IDateService,IEatService{
 
@@ -21,9 +21,9 @@ public class DateProxy implements IDateService,IEatService{
     @Override
     public void haveADate(String msg) {
         //增强
-        System.out.println("月老帮你找到对象了！");
+        before();
         girl.haveADate(msg);
-        System.out.println("月老求反馈");
+        after();
     }
 
 
@@ -32,8 +32,15 @@ public class DateProxy implements IDateService,IEatService{
     @Override
     public void eat(String msg) {
         //增强
-        System.out.println("月老帮你找到对象了！");
+        before();
         beautifulGirl.eat(msg);
-        System.out.println("月老求反馈");
+        after();
+    }
+
+    private void before() {//方法执行前
+        System.out.println("方法执行前 ，月老帮你找到对象了!");
+    }
+    private void after() {//方法执行后
+        System.out.println("方法执行后，月老求反馈");
     }
 }

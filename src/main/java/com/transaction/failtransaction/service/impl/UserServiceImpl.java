@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.awt.geom.NoninvertibleTransformException;
+
 /**
  * @author  liuhuan
  * userService impl
@@ -42,13 +44,14 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public void addUserAndSendEmail(User user, Mail mail){
 		userDao.save(user);
-		try {
-			IUserService iUserService = (IUserService) AopContext.currentProxy();
-			iUserService.sendEmail(mail);
-//			sendEmail(mail);
-		}catch (Exception e){
-			e.printStackTrace();
-		}
+		sendEmail(mail);
+
+//		try {
+//			IUserService iUserService = (IUserService) AopContext.currentProxy();
+//			iUserService.sendEmail(mail);
+//		}catch (Exception e){
+//			e.printStackTrace();
+//		}
 	}
 
 }

@@ -6,16 +6,10 @@ import java.lang.reflect.Proxy;
 
 public class YueLaoFactory implements InvocationHandler{
 
-    //被代理对象
+    /**
+     *  被代理对象
+     */
     private  Object obj;
-
-//    public Object getObject() {
-//        return obj;
-//    }
-//
-//    public void setObject(Object object) {
-//        this.obj = object;
-//    }
 
 
     /**
@@ -45,9 +39,9 @@ public class YueLaoFactory implements InvocationHandler{
     }
 
     private void before() {//方法执行前
-        System.out.println("方法执行前 !");
+        System.out.println("方法执行前,月老工厂为您服务!");
     }
     private void after() {//方法执行后
-        System.out.println("方法执行后");
+        System.out.println("方法执行后，月老为您服务完毕");
     }
 }

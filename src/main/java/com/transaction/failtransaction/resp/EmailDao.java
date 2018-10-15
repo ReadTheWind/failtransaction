@@ -10,8 +10,4 @@ import org.springframework.data.jpa.repository.Query;
  * email dao
  */
 public interface EmailDao extends JpaRepository<Mail,Integer> {
-
-	@SQLInsert(sql = "insert into mail(email_head,email_content,email_end,remark) values ({mail.emailHead},{mail.email_content},{mail.email_end})")
-	public Mail createMail(Mail mail);
-
 }
